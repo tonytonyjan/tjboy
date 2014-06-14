@@ -139,7 +139,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    tjplurk (1.4.3)
+    tjplurk (1.4.4)
       launchy
       oauth
       thor
