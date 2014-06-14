@@ -5,6 +5,7 @@ updated_at = Topic.maximum(:updated_at)
 robot = Tjplurk::Robot.new Topic.all
 
 api.real_time do |plurk|
+  api.request '/APP/Alerts/addAllAsFriends'
   next unless plurk['type'] == 'new_plurk'
 
   content = plurk['content'].gsub(/<[^>]*>/, '')
