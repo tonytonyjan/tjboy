@@ -6,4 +6,12 @@ module ApplicationHelper
   def icon_tag name
     content_tag :span, nil, class: "glyphicon glyphicon-#{name}"
   end
+
+  def user_signed_in?
+    !!current_user
+  end
+
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
 end
