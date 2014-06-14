@@ -1,0 +1,1 @@
+ENV['TJPLURK_FILE'] = Rails.root.join('.tjplurk').to_s

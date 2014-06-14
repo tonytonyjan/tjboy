@@ -1,0 +1,17 @@
+<table id="responses" class="table table-condensed">
+  <thead>
+    <tr>
+      <th width="50px"></th>
+      <th><%= Response.model_name.human %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= f.simple_fields_for :responses, wrapper: false do |ff| %>
+      <tr class="fields">
+        <td><%= ff.link_to_remove content_tag(:span, nil, class: 'glyphicon glyphicon-trash'), class: 'btn btn-danger' %></td>  
+        <td><%= ff.input_field :content, class: 'form-control' %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
+<%= f.link_to_add icon_tag(:plus), :responses, class: 'btn btn-success', data: {target: '#responses'} %>

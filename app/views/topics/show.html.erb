@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1><%= @topic.name %> <code><%= @topic.pattern %></code> <div class="btn-group"><%= link_to '編輯', edit_topic_path(@topic), class: 'btn btn-default' %> <%= link_to '返回', topics_path, class: 'btn btn-default' %></div></h1>
+  <div class="form-inputs">
+    <div class="form-group">
+      <div class="input-group">
+        <span id="check_status" class="input-group-addon"><%= icon_tag :remove %></span>
+        <%= hidden_field_tag :topic_pattern, @topic.pattern %>
+        <input type="text" class="form-control" id="check" placeholder="檢查此內容是否能被表達式捕捉">
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul>
+  <% @topic.responses.each do |response| %>
+    <li><%= response.content %></li>
+  <% end %>
+</ul>

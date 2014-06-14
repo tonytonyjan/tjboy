@@ -1,0 +1,25 @@
+<%= simple_nested_form_for(@topic, html: {class: 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :pattern %>
+    <div class="form-group">
+      <label for="check" class="col-sm-1 control-label"></label>
+      <div class="col-sm-11">
+        <div class="input-group">
+          <span id="check_status" class="input-group-addon"><%= icon_tag :remove %></span>
+          <input type="text" class="form-control" id="check" placeholder="檢查此內容是否能被表達式捕捉">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'responses_fields', f: f %>
+
+  <hr>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-lg btn-primary' %>
+  </div>
+<% end %>

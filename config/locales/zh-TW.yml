@@ -1,0 +1,11 @@
+zh-TW:
+  activerecord:
+    models:
+      topic: 主題
+      response: 回應
+    attributes:
+      topic:
+        name: 名稱
+        pattern: 表達式
+      response:
+        content: 內容

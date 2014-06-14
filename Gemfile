@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'nested_form'
+gem 'tjplurk'
+gem 'rails-i18n'
