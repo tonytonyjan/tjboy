@@ -1,27 +1,33 @@
-<div class="page-header">
-  <h1>
-    <div class="btn-group">
-      <%= link_to '全部', Topic, class: "btn btn-default btn-lg #{active_class(Topic, match: /^\/$|^\/topics$/, method: :match)}" %>
-      <%= link_to display_user(@user) + ' 專屬', [(@user || current_user), Topic], class: "btn btn-default btn-lg #{active_class([current_user, Topic])}" if user_signed_in? %>
-      <%= link_to icon_tag(:plus), [:new, @user, :topic], class: 'btn btn-success btn-lg' %>
+<div class="row">
+  <div class="col-sm-9">
+    <div class="page-header">
+      <h1>
+        <div class="btn-group">
+          <%= link_to '全部', Topic, class: "btn btn-default btn-lg #{active_class(Topic, match: /^\/$|^\/topics$/, method: :match)}" %>
+          <%= link_to display_user(@user) + ' 專屬', [(@user || current_user), Topic], class: "btn btn-default btn-lg #{active_class([current_user, Topic])}" if user_signed_in? %>
+          <%= link_to icon_tag(:plus), [:new, @user, :topic], class: 'btn btn-success btn-lg' %>
+        </div>
+      </h1>
+      <p><%= @user ? "小兜蟲只會針對 #{@user.display_name} 做出回應（必須與小兜蟲互加好友）" : "小兜蟲會對所有人做出回應" %></p>
     </div>
-  </h1>
-  <p><%= @user ? "小兜蟲只會針對 #{@user.display_name} 做出回應（必須與小兜蟲互加好友）" : "小兜蟲會對所有人做出回應" %></p>
+    <%= paginate @topics %>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <%= th_for Topic, :name, :pattern, :user %>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render @topics %>
+      </tbody>
+    </table>
+
+    <%= paginate @topics %>
+  </div>
+  <div class="col-sm-3">
+    <div style="width:200px; height:375px;"><iframe src="http://www.plurk.com/getWidget?uid=7910597&amp;h=375&amp;w=200&amp;u_info=2&amp;bg=cf682f&tl=cae7fd" width="200" frameborder="0" height="375" scrolling="no"></iframe><div style="float: right; padding: 1px;"> <a href="http://plurk.com/" target="_blank" style="font-size: 10px !important; color: #999 !important; border: none; text-decorate: none;" title="Plurk - A Social Journal for your life">Plurk.com</a></div></div>
+  </div>
 </div>
-
-<%= paginate @topics %>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <%= th_for Topic, :name, :pattern, :user %>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render @topics %>
-  </tbody>
-</table>
-
-<%= paginate @topics %>
