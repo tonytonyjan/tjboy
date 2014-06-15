@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   delete 'sign_out' => 'plurk#sign_out'
   get 'plurk/callback'
 
-  resources :users, only: :index do
+  resources :users, only: [] do
     resources :topics
+    get :search, on: :collection
   end
 
   resources :topics do

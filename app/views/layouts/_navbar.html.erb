@@ -28,13 +28,15 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
+      </ul%>
+
+      <form action="/users/search" class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="nick_name" class="form-control" placeholder="輸入噗浪帳號">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form%>
+        <button type="submit" class="btn btn-default">尋找朋友的專頁</button>
+      </form>
+
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="dropdown">

@@ -12,9 +12,9 @@ class PlurkController < ApplicationController
     access_token = request_token.get_access_token oauth_verifier: params[:oauth_verifier]
     raw = access_token.get('/APP/Users/me').body
     profile = JSON.parse raw
-    if user = User.find_or_create_by(plurk_uid: profile['id'].to_s)
+    if user = User.find_or_create_by(nick_name: profile['nick_name'])
       user.update full_name: profile['full_name'],
-                  nick_name: profile['nick_name'],
+                  plurk_uid: profile['id'],
                   display_name: profile['display_name'],
                   avatar_big: profile['avatar_big'],
                   avatar_small: profile['avatar_small'],

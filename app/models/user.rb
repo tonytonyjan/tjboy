@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :topics
-  has_many :subscribed_topics, class_name: :Topic, foreign_key: :subscriber_id
+  has_many :topics, dependent: :destroy
+  has_many :subscribed_topics, class_name: :Topic, foreign_key: :subscriber_id, dependent: :destroy
 
   def to_param
     nick_name
