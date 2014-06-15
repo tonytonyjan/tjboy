@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   root 'topics#index'
+
+  # pages
+  controller :pages do
+    get :about
+    get :faq
+  end
+
+  # auth
   get 'sign_in' => 'plurk#sign_in'
   delete 'sign_out' => 'plurk#sign_out'
   get 'plurk/callback'
