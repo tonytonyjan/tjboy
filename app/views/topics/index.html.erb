@@ -2,7 +2,7 @@
   <h1>
     <div class="btn-group">
       <%= link_to '全部', Topic, class: "btn btn-default btn-lg #{active_class(Topic, match: /^\/$|^\/topics$/, method: :match)}" %>
-      <%= link_to display_user(@user) + ' 專屬', [current_user, Topic], class: "btn btn-default btn-lg #{active_class([current_user, Topic])}" if user_signed_in? %>
+      <%= link_to display_user(@user) + ' 專屬', [(@user || current_user), Topic], class: "btn btn-default btn-lg #{active_class([current_user, Topic])}" if user_signed_in? %>
       <%= link_to icon_tag(:plus), [:new, @user, :topic], class: 'btn btn-success btn-lg' %>
     </div>
   </h1>
