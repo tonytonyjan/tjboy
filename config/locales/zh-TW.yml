@@ -7,5 +7,6 @@ zh-TW:
       topic:
         name: 名稱
         pattern: 表達式
+        user: 作者
       response:
         content: 內容

@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <%= th_for Topic, :name, :pattern %>
+      <%= th_for Topic, :name, :pattern, :user %>
       <th></th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
       <tr>
         <td><%= link_to topic.name, topic %></td>
         <td><code><%= topic.pattern %></code></td>
-
+        <td><%= link_to topic.user %></td>
         <td>
             <%= link_to icon_tag(:edit), edit_topic_path(topic), class: 'btn btn-sm btn-info' %>
             <%= link_to icon_tag(:trash), topic, class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: '你確定？' } %>
