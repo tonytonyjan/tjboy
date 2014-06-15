@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.includes(:user).subscribed_by(@user).order('id DESC').page(params[:page])
+    @topics = Topic.includes(:user).includes(:responses).subscribed_by(@user).order('id DESC').page(params[:page])
   end
 
   # GET /topics/1

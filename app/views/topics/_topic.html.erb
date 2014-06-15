@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to topic.name, [@user, topic] %></td>
+  <td><span class="badge"><%= topic.responses.size %></span> <%= link_to topic.name, [@user, topic] %></td>
   <td><code><%= topic.pattern %></code></td>
   <td><%= link_to topic.user.display_name, [topic.user, Topic] if topic.user %></td>
   <td>
