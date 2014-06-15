@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   end
 
   def own_topic? topic
-    topic.user == self || topic.subscriber == self
+    Settings.admin_nick_names.include? nick_name || topic.user == self || topic.subscriber == self
   end
 end
