@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>新增<%= Topic.model_name.human %><%= "到 #{@user.display_name}" if @user %> <%= link_to '返回', topics_path, class: 'btn btn-default' %></h1>
+  <h1>新增<%= Topic.model_name.human %><%= "到 #{@user.display_name}" if @user %> <%= link_to '返回', [@user, Topic], class: 'btn btn-default' %></h1>
 </div>
 
 <%= render 'form' %>
