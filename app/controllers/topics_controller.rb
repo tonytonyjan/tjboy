@@ -1,10 +1,12 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate!, only: %i[new create edit update destroy]
+  before_action :set_user
+  before_action :set_topic, only: %i[show edit update destroy]
 
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.includes(:user).subscribed_by(@user)
   end
 
   # GET /topics/1
@@ -24,7 +26,8 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(topic_params)
+    @topic = current_user.topics.new(topic_params)
+    @topic.subscriber = @user
 
     respond_to do |format|
       if @topic.save
@@ -69,6 +72,10 @@ class TopicsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
       @topic = Topic.find(params[:id])
+    end
+
+    def set_user
+      @user = User.find_by(nick_name: params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

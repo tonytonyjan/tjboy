@@ -24,7 +24,7 @@ class PlurkController < ApplicationController
                   raw: raw
       session[:request_token], session[:request_secret] = nil, nil
       session[:user_id] = user.id
-      redirect_to root_path, notice: '成功登入'
+      redirect_to (session[:previous_url] || root_path), notice: '成功登入'
     else
       redirect_to root_path, alert: '出錯'
     end
