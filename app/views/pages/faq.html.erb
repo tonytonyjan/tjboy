@@ -1,2 +1,12 @@
-<h1>Pages#faq</h1>
-<p>Find me in app/views/pages/faq.html.erb</p>
+<div class="page-header">
+  <h1>FAQ</h1>
+</div>
+
+<% t('.faqs').each do |faq| %>
+  <div class="panel panel-<%= cycle('info', 'success') %>">
+    <div class="panel-heading">
+      <h3 class="panel-title">Q. <%= raw faq['q'] %></h3>
+    </div>
+    <div class="panel-body">A. <%= raw faq['a'] %></div>
+  </div>
+<% end %>

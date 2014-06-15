@@ -1,4 +1,13 @@
 zh-TW:
+  pages:
+    faq:
+      faqs:
+        - q: 小兜蟲是男是女？
+          a: 因為是個不折不扣的偽娘，所以是男的。
+        - q: 我不會正規表達式，也可以使用嗎？那什麼東西？
+          a: 可以，如果不會用也無妨，可以在「表達式」欄位輸入希望被偵測的詞彙。正規表達式（Regular Expression），是計算機領域常用到的一種上下文無關（Context Free）表達式，詳細請自行 <a href="http://www.google.com#q=regular+expression" target="_blank">Google</a>。
+        - q: 這個資料庫只能用在噗浪？
+          a: 不只，因為有提供 <a href="http://dodo.brainana.com/api/robot?q=早安" target="_blank">API</a>，所以可以用在任何地方。
   activerecord:
     models:
       topic: 主題
