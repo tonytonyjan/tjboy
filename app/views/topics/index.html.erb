@@ -6,7 +6,7 @@
       <%= link_to icon_tag(:plus), [:new, @user, :topic], class: 'btn btn-success btn-lg' %>
     </div>
   </h1>
-  <p><%= @user ? "小兜蟲只會針對 #{@user.display_name} 做出回應" : "小兜蟲會對所有人做出回應" %></p>
+  <p><%= @user ? "小兜蟲只會針對 #{@user.display_name} 做出回應（必須與小兜蟲互加好友）" : "小兜蟲會對所有人做出回應" %></p>
 </div>
 
 <table class="table table-striped">
