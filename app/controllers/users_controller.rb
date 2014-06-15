@@ -8,7 +8,12 @@ class UsersController < ApplicationController
     else
       profile = current_user.api.request('/APP/Profile/getPublicProfile', user_id: params[:nick_name])
       if profile['error_text']
-        redirect_to request.referer || root_path, alert: '找不到這個人'
+        if profile['error_text'].start_with?('40106')
+          session[:previous_url] = request.original_url
+          redirect_to sign_in_path
+        else
+          redirect_to request.referer || root_path, alert: '找不到這個人'
+        end
       else
         user = User.create nick_name: profile['user_info']['nick_name'],
           full_name: profile['user_info']['full_name'],
