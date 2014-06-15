@@ -4,8 +4,8 @@
   <td><%= link_to topic.user.display_name, [topic.user, Topic] if topic.user %></td>
   <td>
     <% if current_user && current_user.own_topic?(topic) %>
-      <%= link_to icon_tag(:edit), edit_topic_path(topic), class: 'btn btn-sm btn-info' %>
-      <%= link_to icon_tag(:trash), topic, class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: '你確定？' } %>
+      <%= link_to icon_tag(:edit), [:edit, @user, topic], class: 'btn btn-sm btn-info' %>
+      <%= link_to icon_tag(:trash), [@user, topic], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: '你確定？' } %>
     <% end %>
   </td>
 </tr>

@@ -32,7 +32,7 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to @topic, notice: '成功新增' }
+        format.html { redirect_to [@user, @topic], notice: '成功新增' }
         format.json { render :show, status: :created, location: @topic }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class TopicsController < ApplicationController
   def update
     respond_to do |format|
       if @topic.update(topic_params)
-        format.html { redirect_to @topic, notice: '成功更新' }
+        format.html { redirect_to [@user, @topic], notice: '成功更新' }
         format.json { render :show, status: :ok, location: @topic }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic.destroy
     respond_to do |format|
-      format.html { redirect_to topics_url, notice: '成功刪除' }
+      format.html { redirect_to [@user, Topic], notice: '成功刪除' }
       format.json { head :no_content }
     end
   end
