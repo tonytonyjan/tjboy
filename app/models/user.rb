@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   def api
     @api ||= Tjplurk::API.new Settings.consumer_key, Settings.consumer_secret, token, secret
   end
+
+  def own_topic? topic
+    topic.user == self || topic.subscriber == self
+  end
 end

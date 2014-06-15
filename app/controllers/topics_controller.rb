@@ -85,6 +85,6 @@ class TopicsController < ApplicationController
     end
 
     def chack_owner!
-      redirect_to request.referer || root_path, alert: '權限不足' if @topic.user != current_user
+      redirect_to request.referer || root_path, alert: '權限不足' unless current_user.own_topic?(@topic)
     end
 end
