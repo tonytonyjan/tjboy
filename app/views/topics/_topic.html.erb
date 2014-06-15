@@ -1,7 +1,7 @@
 <tr>
   <td><%= link_to topic.name, [@user, topic] %></td>
   <td><code><%= topic.pattern %></code></td>
-  <td><%= link_to topic.user.display_name, [topic.user, Topic] %></td>
+  <td><%= link_to topic.user.display_name, [topic.user, Topic] if topic.user %></td>
   <td>
     <% if current_user && current_user.own_topic?(topic) %>
       <%= link_to icon_tag(:edit), edit_topic_path(topic), class: 'btn btn-sm btn-info' %>
