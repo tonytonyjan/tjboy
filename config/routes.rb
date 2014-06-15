@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   resources :topics do
     get :check, on: :collection
   end
+
+  namespace :api do
+    get :robot
+  end
 end

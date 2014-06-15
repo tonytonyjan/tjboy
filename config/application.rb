@@ -22,5 +22,6 @@ module Tjboy
     config.generators.assets = false
     config.generators.helper = false
     config.generators.jbuilder = false
+    config.autoload_paths += Dir[Rails.root.join('lib', 'singleton')]
   end
 end
