@@ -5,4 +5,6 @@ class Topic < ActiveRecord::Base
   belongs_to :subscriber, class_name: :User
   has_many :responses
   accepts_nested_attributes_for :responses, allow_destroy: true, reject_if: :all_blank
+
+  validates :name, :pattern, presence: true
 end

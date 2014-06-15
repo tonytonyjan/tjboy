@@ -1,0 +1,9 @@
+zh-TW:
+  simple_form:
+    "yes": '是'
+    "no": '否'
+    required:
+      text: '必舔'
+      mark: '*'
+    error_notification:
+      default_message: "資料出了點問題，請再檢查一次："
