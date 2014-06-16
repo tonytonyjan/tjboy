@@ -32,6 +32,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= display_user(current_user) %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <%= nav_li icon_tag(:user) + ' 我的專區', polymorphic_path([current_user, Topic]) %>
+              <%= nav_li icon_tag(:book) + ' 我的朋友', users_path %>
               <li><%= link_to icon_tag(:off) + ' 登出', sign_out_path, method: :delete %></li>
             </ul>
           </li>

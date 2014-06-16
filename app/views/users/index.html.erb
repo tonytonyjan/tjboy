@@ -1,2 +1,27 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="alert alert-warning alert-dismissable">
+  每日更新，上次更新於： <%= l current_user.friends_cache_updated_at, format: :long %>
+</div>
+<table class="table table-hover table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>專頁</th>
+      <th>噗浪暱稱</th>
+      <th>全名</th>
+      <th>ID</th>
+      <th>Karma</th>
+      <th>性別</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= link_to icon_tag(:link), search_users_path(nick_name: friend['nick_name']) %></td>
+        <td><%= friend['display_name'] %></td>
+        <td><%= friend['full_name'] %></td>
+        <td><%= friend['nick_name'] %></td>
+        <td><%= friend['karma'] %></td>
+        <td><%= case friend['gender'] when 1 then '男'; when 2 then '女'; else '其他'; end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
