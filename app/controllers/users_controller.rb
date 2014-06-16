@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     if current_user.friends_cache_updated_at.nil? || current_user.friends_cache_updated_at < 1.day.ago
       @friends = get_all_friends_recursively
-      current_user.update(friends_cache: @friends.to_json) && current_user.touch(:friends_cache_updated_at)
+      current_user.update(friends_cache: @friends.to_json) && current_user.touch(:friends_cache_updated_at) if @friends.present?
     else
       @friends = JSON.parse(current_user.friends_cache)
     end
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
   def get_all_friends_recursively friends=[], offset=0
     result = get_friends_by_offset(offset)
-    return friends if result.empty?
+    return friends if response.status == 302 || result.empty?
     friends += result
     get_all_friends_recursively(friends, friends.length)
   end
