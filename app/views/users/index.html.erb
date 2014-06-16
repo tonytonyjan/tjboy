@@ -16,6 +16,7 @@
     <% @friends.each do |friend| %>
       <tr>
         <td><%= link_to icon_tag(:link), search_users_path(nick_name: friend['nick_name']) %></td>
+        <td><%= image_tag avatar_for_friend(friend) %></td>
         <td><%= friend['display_name'] %></td>
         <td><%= friend['full_name'] %></td>
         <td><%= friend['nick_name'] %></td>
