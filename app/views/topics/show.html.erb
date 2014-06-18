@@ -16,3 +16,6 @@
     <li><%= response.content %></li>
   <% end %>
 </ul>
+
+<script>var disqus_identifier = '<%= topic_path(@topic) %>';</script>
+<%= render 'layouts/disqus' %>
