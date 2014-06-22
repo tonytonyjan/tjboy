@@ -2,7 +2,7 @@ api = Tjplurk::API.new
 
 api.real_time do |plurk|
   api.request '/APP/Alerts/addAllAsFriends'
-  next unless plurk['type'] == 'new_plurk'
+  next unless plurk['type'] == 'new_plurk' && plurk['replurker_id'].present?
   # content = plurk['content'].gsub(/<[^>]*>/, '')
   content = plurk['content_raw']
 
